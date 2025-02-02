@@ -83,3 +83,10 @@ docker build -t jenkins .
 
 # Run the Jenkins Container
 docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins -d jenkins
+
+# Step 3: 
+# Create a pipeline of any name and check the box the 2 boxes:
+![check boxes](image.png)
+
+# For GitHub, create a generate a API token following access rights for a private repository project:
+![GitHubAccessToken]](image-1.png)
