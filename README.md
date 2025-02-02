@@ -104,7 +104,10 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 
 # Update jenkinsfile and try building the pipeline
 
-# Add new steps to build
+# Update jenkinsfile by adding new steps to run Unit Testing
 
-# Add new steps to run Unit Testing
+# Failed to build and run unit testing, jenkins .net SDK does not support .net 6.0 contrary to the documentation, more infomation on
+# https://medium.com/@nestor.panu/building-an-asp-net-6-application-on-docker-based-jenkins-d6c8aaf94756
+# https://github.com/dotnet/core/issues/6172
 
+# Update dockerfile to install .net 6.0 sdk during build
