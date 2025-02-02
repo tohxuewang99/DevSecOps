@@ -89,4 +89,7 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 ![check boxes](image.png)
 
 # For GitHub, create a generate a API token following access rights for a private repository project:
-![GitHubAccessToken]](image-1.png)
+![GitHubAccessToken](image-1.png)
+
+# For AzureDevOps, create a generate a PAT/API token following access rights for a private repository project:
+![AzureAccessToken](image-2.png)
