@@ -99,7 +99,12 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 ![Add credentials](Images/image-3.png)
 
 # Step 2:
-# Install Plugin Pipeline: Stage View
+# Install Plugin Pipeline: Stage View:
 ![Pipeline stage view](Images/image-4.png)
 
 # Update jenkinsfile and try building the pipeline
+
+# Add new steps to build
+
+# Add new steps to run Unit Testing
+

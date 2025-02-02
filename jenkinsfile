@@ -7,5 +7,23 @@ pipeline {
 				git branch: 'main', url: 'https://dev.azure.com/wangu99/_git/CICD_Tests_with_Jenkins_and_Netcore_6', credentialsId: 'Azure'
 			}
 		}
+        stage('Build') {
+            steps {
+                script {
+                    dir('APP_Development_ENV/SimpleNetApp') {
+                        sh 'dotnet build'
+                    }
+                }
+            }
+        }
+        stage('Unit Testing') {
+            steps {
+                script {
+                    dir('APP_Development_ENV/SimpleNetApp.Tests') {
+                        sh 'dotnet test'
+                    }
+                }
+            }
+        }
     }
 }
