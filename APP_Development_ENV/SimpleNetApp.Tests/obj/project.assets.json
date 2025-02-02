@@ -1802,6 +1802,19 @@
         "build": {
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
+      },
+      "SimpleNetApp/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SimpleNetApp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SimpleNetApp.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -6098,11 +6111,17 @@
         "xunit.runner.visualstudio.2.4.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "SimpleNetApp/1.0.0": {
+      "type": "project",
+      "path": "../SimpleNetApp/SimpleNetApp.csproj",
+      "msbuildProject": "../SimpleNetApp/SimpleNetApp.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.NET.Test.Sdk >= 17.1.0",
+      "SimpleNetApp >= 1.0.0",
       "coverlet.collector >= 3.1.2",
       "xunit >= 2.4.1",
       "xunit.runner.visualstudio >= 2.4.3"
@@ -6114,11 +6133,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\SimpleNetApp.Tests\\SimpleNetApp.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\APP_Development_ENV\\SimpleNetApp.Tests\\SimpleNetApp.Tests.csproj",
       "projectName": "SimpleNetApp.Tests",
-      "projectPath": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\SimpleNetApp.Tests\\SimpleNetApp.Tests.csproj",
+      "projectPath": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\APP_Development_ENV\\SimpleNetApp.Tests\\SimpleNetApp.Tests.csproj",
       "packagesPath": "C:\\Users\\tendo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\SimpleNetApp.Tests\\obj\\",
+      "outputPath": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\APP_Development_ENV\\SimpleNetApp.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tendo\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6132,7 +6151,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\APP_Development_ENV\\SimpleNetApp\\SimpleNetApp.csproj": {
+              "projectPath": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\APP_Development_ENV\\SimpleNetApp\\SimpleNetApp.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

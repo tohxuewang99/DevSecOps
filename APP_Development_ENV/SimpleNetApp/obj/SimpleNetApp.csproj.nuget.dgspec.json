@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\SimpleNetApp\\SimpleNetApp.csproj": {}
+    "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\APP_Development_ENV\\SimpleNetApp\\SimpleNetApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\SimpleNetApp\\SimpleNetApp.csproj": {
+    "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\APP_Development_ENV\\SimpleNetApp\\SimpleNetApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\SimpleNetApp\\SimpleNetApp.csproj",
+        "projectUniqueName": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\APP_Development_ENV\\SimpleNetApp\\SimpleNetApp.csproj",
         "projectName": "SimpleNetApp",
-        "projectPath": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\SimpleNetApp\\SimpleNetApp.csproj",
+        "projectPath": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\APP_Development_ENV\\SimpleNetApp\\SimpleNetApp.csproj",
         "packagesPath": "C:\\Users\\tendo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\SimpleNetApp\\obj\\",
+        "outputPath": "C:\\Users\\tendo\\OneDrive - Singapore Institute Of Technology\\Desktop\\net core 6\\DevSecOps\\DevSecOps\\APP_Development_ENV\\SimpleNetApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tendo\\AppData\\Roaming\\NuGet\\NuGet.Config"
