@@ -111,3 +111,10 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 # https://github.com/dotnet/core/issues/6172
 
 # Update dockerfile to install .net 6.0 sdk during build
+
+# Step 3:
+# Install Plugin OWASP Depedency Check:
+![alt text](Images/image-5.png)
+
+# Add tools to install the latest OWASP Depedency Check directly from github:
+![alt text](Images/image-6.png)
