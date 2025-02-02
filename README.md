@@ -87,13 +87,14 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 # Create a pipeline to start the CICD for checkout to retrieve the files from a private repository
 # Step 1: 
 # Create a pipeline of any name and check the box the 2 boxes:
-![check boxes](Images\image.png)
+![check boxes](Images/image.png)
 
 # For GitHub, create a generate a API token following access rights for a private repository project:
-![GitHubAccessToken](Images\image-1.png)
+![GitHubAccessToken](Images/image-1.png)
 
 # For AzureDevOps, create a generate a PAT/API token following access rights for a private repository project:
-![AzureAccessToken](Images\image-2.png)
+![AzureAccessToken](Images/image-2.png)
 
 # Add the credentials in Jenkins with the created token following:
-![Add credentials](Images\image-3.png)
+![Add credentials](Images/image-3.png)
+
