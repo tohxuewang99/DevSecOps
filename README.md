@@ -100,11 +100,11 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 
 # Step 2:
 # Install Plugin Pipeline: Stage View:
-![Pipeline stage view](Images/image-4.png)
+![Pipeline stage view plugin](Images/image-4.png)
 
 # Update jenkinsfile and try building the pipeline
 
-# Update jenkinsfile by adding new steps to run Unit Testing
+# Update jenkinsfile by adding new steps to run Unit Testing for reliability testing
 
 # Failed to build and run unit testing, jenkins .net SDK does not support .net 6.0 contrary to the documentation, more infomation on
 # https://medium.com/@nestor.panu/building-an-asp-net-6-application-on-docker-based-jenkins-d6c8aaf94756
@@ -113,8 +113,10 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 # Update dockerfile to install .net 6.0 sdk during build
 
 # Step 3:
-# Install Plugin OWASP Depedency Check:
-![alt text](Images/image-5.png)
+# Install Plugin OWASP Depedency Check for Software Composition Analysis (SCA):
+![OWASP Dependency Check Plugin](Images/image-5.png)
 
 # Add tools to install the latest OWASP Depedency Check directly from github:
-![alt text](Images/image-6.png)
+![Add into tools to install and use latest](Images/image-6.png)
+
+# Update jenkinsfile to test the OWASP dependency check step
