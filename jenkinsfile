@@ -1,0 +1,11 @@
+pipeline {
+	agent any
+	stages {
+		stage('Git Checkout') {
+			steps {
+                //token secret is safe and hidden in the credentials with testing repo
+				git branch: 'main', url: 'https://dev.azure.com/wangu99/_git/CICD_Tests_with_Jenkins_and_Netcore_6', credentialsId: 'Azure'
+			}
+		}
+    }
+}

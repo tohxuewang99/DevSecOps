@@ -98,3 +98,8 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 # Add the credentials in Jenkins with the created token following:
 ![Add credentials](Images/image-3.png)
 
+# Step 2:
+# Install Plugin Pipeline: Stage View
+![Pipeline stage view](Images/image-4.png)
+
+# Update jenkinsfile and try building the pipeline
