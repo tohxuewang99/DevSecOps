@@ -120,3 +120,7 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 ![Add into tools to install and use latest](Images/image-6.png)
 
 # Update jenkinsfile to test the OWASP dependency check step, change all format to only 2 .xml and .html
+
+# Download either the .xml or .html report and create a suppression.xml file to prevent any false positive security vulnerabilities found in the depedencies
+
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+    <suppress>
+        <packageUrl regex="true">pkg:javascript/jquery-validation@1\.19\.5</packageUrl>
+        <vulnerabilityName>Potential XSS via showLabel</vulnerabilityName>
+        <md5>7c842b9debce62b8458428a0a7254105</md5>
+        <sha1>38522100c0a08864299e41525338ff71c29d6236</sha1>
+        <sha256>d0778c5b24146d36deed21a74986e38fdf87540d2128398452d6d8a1329ef819</sha256>
+        <notes>
+            This is a false positive. The version of jquery-validation used is not vulnerable to this issue.
+            The vulnerability is specific to newer versions, and the issue has been mitigated in our usage.
+        </notes>
+    </suppress>
+</suppressions>
