@@ -119,4 +119,4 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 # Add tools to install the latest OWASP Depedency Check directly from github:
 ![Add into tools to install and use latest](Images/image-6.png)
 
-# Update jenkinsfile to test the OWASP dependency check step
+# Update jenkinsfile to test the OWASP dependency check step, change all format to only 2 .xml and .html
