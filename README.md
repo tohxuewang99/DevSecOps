@@ -123,4 +123,6 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 
 # Download either the .xml or .html report and create a suppression.xml file to prevent any false positive security vulnerabilities found in the depedencies
 
+# Update the jenkins file and point onto the suppression.xml to suppress the false positive
+
 
