@@ -13,6 +13,11 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Direct install form github
+RUN wget -O sonarlint-cli.zip https://github.com/SonarSource/sonarlint-cli/releases/latest/download/sonarlint-cli.zip && \
+    unzip sonarlint-cli.zip -d /usr/local/bin/ && \
+    rm sonarlint-cli.zip
+
 # Set the Jenkins environment variables
 ENV JENKINS_OPTS="--httpPort=8899"
 

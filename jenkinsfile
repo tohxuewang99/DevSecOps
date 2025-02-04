@@ -31,5 +31,19 @@ pipeline {
                 dependencyCheckPublisher pattern: 'dependency-check-report.xml'
             }
         }
+        stage('SonarLint Standalone Scan') {
+            steps {
+                script {
+                    dir('APP_Development_ENV/SimpleNetApp') {
+                        //sonarlint scan
+                        sh '''
+                            sonarlint --html-report sonarlint-report.html \
+                                      --src . \
+                                      --exclusions "**/bin/**,**/obj/**,**/node_modules/**,**/wwwroot/lib/**,**.test**"
+                        '''
+                    }
+                }
+            }
+        }
     }
 }

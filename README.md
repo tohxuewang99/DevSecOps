@@ -1,7 +1,7 @@
 # DevSecOps
 # Azure DevOps and GitHub for DevSecOps
 
-# Steps to create a simple Net 6.0 Project:
+# Steps to create a simple Net 6.0 Project, to simulate company application:
 # Step 1: Set Up Your Environment
 Download and install the .NET 6 SDK from the official .NET website.
 Download and install Visual Studio Code from the official website.
@@ -124,5 +124,9 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 # Download either the .xml or .html report and create a suppression.xml file to prevent any false positive security vulnerabilities found in the depedencies
 
 # Update the jenkins file and point onto the suppression.xml to suppress the false positive
+
+# Step 4:
+# Update dockerfile to install sonarlint or sonarlint CLI, linter application used by company and installed for emulation
+# 
 
 
