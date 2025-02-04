@@ -126,7 +126,12 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 # Update the jenkins file and point onto the suppression.xml to suppress the false positive
 
 # Step 4:
-# Update dockerfile to install sonarlint or sonarlint CLI, linter application used by company and installed for emulation
-# 
+# Update dockerfile to install sonarlint or sonarlint CLI, linter application used by company and installed for emulation as a static analysis tool
+
+# Update jenkins file on previous commit to run the sonarlint scan
+
+# Failed to run the Sonarlint pipeline stage as Sonarlint is an IDE extension based linter and SonarLint CLI is archived since 2018 and no longer support CLI usage even though Sonarlint by itself is still supported as of today as an SONARQUBE FOR IDE, https://github.com/SonarSource/sonarlint-cli,https://stackoverflow.com/questions/46975487/sonarlint-command-line-version-dropped
+
+
 
 
