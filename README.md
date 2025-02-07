@@ -132,6 +132,7 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 
 # Failed to run the Sonarlint pipeline stage as Sonarlint is an IDE extension based linter and SonarLint CLI is archived since 2018 and no longer support CLI usage even though Sonarlint by itself is still supported as of today as an SONARQUBE FOR IDE, https://github.com/SonarSource/sonarlint-cli,https://stackoverflow.com/questions/46975487/sonarlint-command-line-version-dropped
 
-
+# Swapped to SonarQube Cloud to run the analysis using API calls
+![SonarQube Cloud](Images/image-7.png)
 
 
