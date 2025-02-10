@@ -31,16 +31,21 @@ pipeline {
                 dependencyCheckPublisher pattern: 'dependency-check-report.xml'
             }
         }
-        stage('SonarLint Standalone Scan') {
+        stage('SonarQube Cloud Analysis') {
             steps {
                 script {
                     dir('APP_Development_ENV/SimpleNetApp') {
-                        //sonarlint scan
-                        sh '''
-                            sonarlint --html-report sonarlint-report.html \
-                                      --src . \
-                                      --exclusions "**/bin/**,**/obj/**,**/node_modules/**,**/wwwroot/lib/**,**.test**"
-                        '''
+                        withCredentials([string(credentialsId: 'SONARQUBE_TOKEN', variable: 'SONAR_TOKEN')]) {
+                            sh '''
+                                sonar-scanner \
+                                    -Dsonar.projectKey=SimpleNetApp \
+                                    -Dsonar.projectName=SimpleNetApp \
+                                    -Dsonar.sources=. \
+                                    -Dsonar.host.url=https://sonarcloud.io \
+                                    -Dsonar.login=${SONAR_TOKEN} \
+                                    -Dsonar.exclusions=**/bin/**,**/obj/**,**/node_modules/**,**/wwwroot/lib/**,**.test**
+                            '''
+                        }
                     }
                 }
             }
