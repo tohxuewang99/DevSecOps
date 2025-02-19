@@ -1,0 +1,40 @@
+services:
+  jenkins:
+    build:
+      dockerfile: jenkins.dockerfile
+      context: .
+    container_name: jenkins
+    ports:
+      - "8899:8899"
+    volumes:
+      - ./jenkins_home:/var/jenkins_home # Mount the Jenkins file onto ./jenkins_home folder
+      - /var/run/docker.sock:/var/run/docker.sock  # Mount Docker socket for Docker in Docker
+    networks:
+      MyCustomNetwork:
+        ipv4_address: 172.19.0.1
+  sonarqube:
+    image: sonarqube:latest
+    container_name: sonarqube
+    ports:
+      - "9000:9000"
+    networks:
+      MyCustomNetwork:
+        ipv4_address: 172.19.0.2
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true  # Running sonarqube server using docker does not require Elasticsearch bootstrap checks or environment scan in short
+    volumes:
+      - ./sonarqube/sonarqube_data:/opt/sonarqube/data
+      - ./sonarqube/sonarqube_extensions:/opt/sonarqube/extensions
+      - ./sonarqube/sonarqube_logs:/opt/sonarqube/logs
+      - ./sonarqube/sonarqube_temp:/opt/sonarqube/temp
+
+networks:
+  MyCustomNetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/24 # Replace with any private network if need
+
+
+# docker-compose up -d --build
+# docker-compose down
