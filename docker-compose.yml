@@ -11,7 +11,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock  # Mount Docker socket for Docker in Docker
     networks:
       MyCustomNetwork:
-        ipv4_address: 172.19.0.1
+        ipv4_address: 172.20.0.2
   sonarqube:
     image: sonarqube:latest
     container_name: sonarqube
@@ -19,10 +19,11 @@ services:
       - "9000:9000"
     networks:
       MyCustomNetwork:
-        ipv4_address: 172.19.0.2
+        ipv4_address: 172.20.0.3
     environment:
       - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true  # Running sonarqube server using docker does not require Elasticsearch bootstrap checks or environment scan in short
     volumes:
+      # default username:admin & password:admin
       - ./sonarqube/sonarqube_data:/opt/sonarqube/data
       - ./sonarqube/sonarqube_extensions:/opt/sonarqube/extensions
       - ./sonarqube/sonarqube_logs:/opt/sonarqube/logs
@@ -33,7 +34,7 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 172.19.0.0/24 # Replace with any private network if need
+        - subnet: 172.20.0.0/24 # Replace with any private network if need
 
 
 # docker-compose up -d --build

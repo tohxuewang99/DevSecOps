@@ -140,5 +140,12 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 # Step 5:
 # Redo dockerfile to create a dockercompose to run multiple images with custom private communication with one another
 
+# Run sonarqube server & jenkins together with dockercompose, set up a project locally, generate a global analysis token to be used in jenkins
+![SonarQube Server](Images/image-8.png)
 
+![SonarQube global analysis token](Images/image-9.png)
+![Generate Token Credentials](Images/image-10.png)
+
+# Install SonarQube Scanner plugin in jenkins
+![SonarQube Scanner Plugin installation](Images/image-11.png)
 
