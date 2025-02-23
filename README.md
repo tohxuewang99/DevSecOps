@@ -149,3 +149,12 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 # Install SonarQube Scanner plugin in jenkins
 ![SonarQube Scanner Plugin installation](Images/image-11.png)
 
+# Set up the global configuration in System, Server URL pointing to the SonarQube Server and Server Authentication token pointing to a new credential created with secret text using the sonarqube token
+
+![System setting for SonarQube](Images/image-12.png)
+![Secret Text Credential for SonarQube Token](Images/image-13.png)
+
+# Set up the global configuration in Tools, to install the latest SonarQube Scanner during pipeline build
+![Tools setting for latest SonarQube Scanner Installation](Images/image-14.png)
+
+
