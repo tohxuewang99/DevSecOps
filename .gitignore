@@ -1,1 +1,16 @@
+# Secrets and tokens
 secrets.yml
+
+# Jenkins
+jenkins_home/ # Ignore the entire Jenkins home directory (contains sensitive data and logs)
+
+# SonarQube
+sonarqube/
+sonarqube/sonarqube_data/ # Ignore SonarQube data directory
+sonarqube/sonarqube_logs/ # Ignore SonarQube logs
+sonarqube/sonarqube_temp/ # Ignore SonarQube temp files
+
+# General
+.vscode/ # Ignore VS Code settings
+*.log # Ignore log files
+*.tmp # Ignore temporary files
