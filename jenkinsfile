@@ -5,6 +5,8 @@ pipeline {
 			steps {
                 //token secret is safe and hidden in the credentials with testing repo
 				git branch: 'main', url: 'https://dev.azure.com/wangu99/_git/CICD_Tests_with_Jenkins_and_Netcore_6', credentialsId: 'Azure'
+                //remove .git file to stop infinite loop when uploading to git
+                sh 'rm -rf .git'
 			}
 		}
         stage('Build') {
@@ -31,6 +33,25 @@ pipeline {
                 dependencyCheckPublisher pattern: 'dependency-check-report.xml'
             }
         }
-        
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool 'SonarLatest';
+                    // confirmed localhost does not work
+                    // need projectkey
+                    withSonarQubeEnv("SonarQube") {
+                        withCredentials([string(credentialsId: 'Sonar_token', variable: 'SONARQUBE_TOKEN')]) {
+                            sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=Jenkins \
+                            -Dsonar.sources=${env.WORKSPACE} \
+                            -Dsonar.host.url=http://172.20.0.3:9000 \
+                            -Dsonar.token=${SONARQUBE_TOKEN} \
+                            -Dsonar.dotnet.excludeTestProjects=true \
+                            -Dsonar.qualitygate.wait=true"
+                        }
+                    }
+                }
+            }
+		}
     }
 }

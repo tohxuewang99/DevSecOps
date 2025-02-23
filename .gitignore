@@ -3,6 +3,7 @@ secrets.yml
 
 # Jenkins
 jenkins_home/ # Ignore the entire Jenkins home directory (contains sensitive data and logs)
+jenkins_home/*
 
 # SonarQube
 sonarqube/

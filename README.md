@@ -138,8 +138,9 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 # SonarQube Cloud does works but not in the way the organisation would want as the free version only allows public repository and will display the analysis results to the public which could be detrimental for our organisation, as I do not have codebase access and do not wish for any analysis results to leak after handing the project over to the organisation, we have decided to move forward with a SonarQube Standalone Server instead of SonarQube Cloud until we have fully adopted all the application over
 
 # Step 5:
-# Redo dockerfile to create a dockercompose to run multiple images with custom private communication with one another
+# To allow SonarQube Standalone Server and Jenkins integration
 
+# Redo dockerfile to create a dockercompose to run multiple images with custom private communication with one another
 # Run sonarqube server & jenkins together with dockercompose, set up a project locally, generate a global analysis token to be used in jenkins
 ![SonarQube Server](Images/image-8.png)
 
@@ -156,5 +157,7 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 
 # Set up the global configuration in Tools, to install the latest SonarQube Scanner during pipeline build
 ![Tools setting for latest SonarQube Scanner Installation](Images/image-14.png)
+
+# Updated jenkinsfile with Dsonar commands to trigger project scan with token credentials created in system and installation created in tools pointing towards the SonarQube Scanner Server
 
 
