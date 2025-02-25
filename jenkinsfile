@@ -57,10 +57,24 @@ pipeline {
             steps {
                 script {
                     // waitForQualityGate abortPipeline: true
-                    timeout(time: 10, unit: 'MINUTES') {
-                        def qg = waitForQualityGate()
-                        if (qg.status != 'OK') {
-                            error "Pipeline aborted due to failing Quality Gate: ${qg.status}"
+                    // timeout(time: 10, unit: 'MINUTES') {
+                    //     def qg = waitForQualityGate()
+                    //     if (qg.status != 'OK') {
+                    //         error "Pipeline aborted due to failing Quality Gate: ${qg.status}"
+                    //     }
+                    withSonarQubeEnv("SonarQube") {
+                        withCredentials([string(credentialsId: 'Sonar_token', variable: 'SONARQUBE_TOKEN')]) {
+                            // Query the SonarQube API for the Quality Gate status
+                            def projectKey = 'Jenkins' // Match the projectKey from the scan
+                            def qualityGateStatus = sh(script: """
+                                curl -u ${SONARQUBE_TOKEN}: \
+                                http://172.20.0.3:9000/api/qualitygates/project_status?projectKey=${projectKey} \
+                                | jq -r '.projectStatus.status'
+                            """, returnStdout: true).trim()
+        
+                            if (qualityGateStatus != 'OK') {
+                                error "Pipeline aborted due to failing Quality Gate: ${qualityGateStatus}"
+                            }
                         }
                     }
                 }

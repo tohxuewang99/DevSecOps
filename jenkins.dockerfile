@@ -10,6 +10,7 @@ RUN apt-get update && \
     dpkg -i packages-microsoft-prod.deb && \
     apt-get update && \
     apt-get install -y dotnet-sdk-6.0 libicu-dev && \
+    apt-get install -y jq && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

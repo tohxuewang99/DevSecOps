@@ -166,4 +166,6 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 ![Apply Quality gate to project in project page](Images/image-16.png)
 ![Change it to deployment ready quality gate](Images/image-17.png)
 
-# update jenkins file to query check if quality has been successful after a wait timer
+# update jenkins file to query check if quality has been successful after a wait timer, only works as i have -Dsonar.qualitygate.wait=true, unsure if the quality gate check is using previous success quality check, installed jq(a lightweight command-line JSON processor) in jenkins dockerfile to help retrieve the qualitygate status
+
+
