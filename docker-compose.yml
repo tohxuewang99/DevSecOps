@@ -28,6 +28,16 @@ services:
       - ./sonarqube/sonarqube_extensions:/opt/sonarqube/extensions
       - ./sonarqube/sonarqube_logs:/opt/sonarqube/logs
       - ./sonarqube/sonarqube_temp:/opt/sonarqube/temp
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+    networks:
+      MyCustomNetwork:
+        ipv4_address: 172.20.0.4
 
 networks:
   MyCustomNetwork:

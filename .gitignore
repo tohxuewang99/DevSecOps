@@ -11,6 +11,10 @@ sonarqube/sonarqube_data/ # Ignore SonarQube data directory
 sonarqube/sonarqube_logs/ # Ignore SonarQube logs
 sonarqube/sonarqube_temp/ # Ignore SonarQube temp files
 
+# nginx
+nginx/
+nginx/*
+
 # General
 .vscode/ # Ignore VS Code settings
 *.log # Ignore log files
