@@ -56,12 +56,6 @@ pipeline {
         stage('Quality Gate') {
             steps {
                 script {
-                    // waitForQualityGate abortPipeline: true
-                    // timeout(time: 10, unit: 'MINUTES') {
-                    //     def qg = waitForQualityGate()
-                    //     if (qg.status != 'OK') {
-                    //         error "Pipeline aborted due to failing Quality Gate: ${qg.status}"
-                    //     }
                     withSonarQubeEnv("SonarQube") {
                         withCredentials([string(credentialsId: 'Sonar_token', variable: 'SONARQUBE_TOKEN')]) {
                             // Query the SonarQube API for the Quality Gate status
@@ -73,7 +67,7 @@ pipeline {
                             """, returnStdout: true).trim()
         
                             if (qualityGateStatus != 'OK') {
-                                error "Pipeline aborted due to failing Quality Gate: ${qualityGateStatus}"
+                                error "Pipeline aborted due to failing Quality Gate: ${qualityGateStatus}, Email notification has been sent to user"
                             }
                         }
                     }

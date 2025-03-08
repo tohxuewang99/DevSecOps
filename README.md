@@ -166,6 +166,15 @@ docker run -p 8899:8899 -v ./jenkins_container:/var/jenkins_home --name jenkins 
 ![Apply Quality gate to project in project page](Images/image-16.png)
 ![Change it to deployment ready quality gate](Images/image-17.png)
 
-# update jenkins file to query check if quality has been successful after a wait timer, only works as i have -Dsonar.qualitygate.wait=true, unsure if the quality gate check is using previous success quality check, installed jq(a lightweight command-line JSON processor) in jenkins dockerfile to help retrieve the qualitygate status
+# update jenkins file to query check if quality has been successful after a wait timer, only works as i have -Dsonar.qualitygate.wait=true, unsure if the quality gate check is using previous success quality check, installed jq(a lightweight command-line JSON processor) in jenkins dockerfile to help retrieve the qualitygate status using curl command
 
+# Quality for deployment ready if failed to send a email notification through a SMTP server and service account
+![SMTP email notification](Images/image-17.png)
+
+# Step 7:
+# Update jenkinsfile to publish .Net 6 application to deployment ready for linux and windows OS
+# Failed to publish a self contained artefact for a linux-x64 targetted framework with error MSB4018 but works when publishing for windows-x64
+# Manual and local publish of the same .Net application seems to work
+# Tried multiple ways such as installing the latest .NET 8 version while publishing to .Net 6 version but still unsuccessful
+# Decide to not create a self contained artefact for linux publish allowing it to be used for all OS but needs to have .Net 6.0 SDK installed.
 

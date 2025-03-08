@@ -10,6 +10,7 @@ sonarqube/
 sonarqube/sonarqube_data/ # Ignore SonarQube data directory
 sonarqube/sonarqube_logs/ # Ignore SonarQube logs
 sonarqube/sonarqube_temp/ # Ignore SonarQube temp files
+sonarqube_old/
 
 # nginx
 nginx/
