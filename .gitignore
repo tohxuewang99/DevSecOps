@@ -13,8 +13,10 @@ sonarqube/sonarqube_temp/ # Ignore SonarQube temp files
 sonarqube_old/
 
 # nginx
-nginx/
-nginx/*
+
+nginx/html/
+nginx/root_ssh/
+nginx/ssh_keys/
 
 # General
 .vscode/ # Ignore VS Code settings

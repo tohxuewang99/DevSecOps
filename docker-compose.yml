@@ -28,7 +28,22 @@ services:
       - ./sonarqube/sonarqube_extensions:/opt/sonarqube/extensions
       - ./sonarqube/sonarqube_logs:/opt/sonarqube/logs
       - ./sonarqube/sonarqube_temp:/opt/sonarqube/temp
-
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx.dockerfile
+    container_name: nginx
+    ports:
+      - "8080:80"
+      - "2222:22"  # Expose port 22 for SSH
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/ssh_keys:/etc/ssh  # Persist SSH host keys
+      - ./nginx/root_ssh:/root/.ssh  # Persist root's .ssh directory
+      - ./nginx/conf:/etc/nginx
+    networks:
+      MyCustomNetwork:
+        ipv4_address: 172.20.0.4
 
 networks:
   MyCustomNetwork:
