@@ -22,3 +22,8 @@ nginx/ssh_keys/
 .vscode/ # Ignore VS Code settings
 *.log # Ignore log files
 *.tmp # Ignore temporary files
+
+
+# Ignore deployment of self contained app
+APP_Deployment_ENV/linux_x64/*
+APP_Deployment_ENV/win_x64/*

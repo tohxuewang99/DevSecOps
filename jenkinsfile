@@ -84,7 +84,7 @@ pipeline {
                         sh 'dotnet clean'
                         sh 'dotnet publish -c Release -p:PublishReadyToRun=false --self-contained false --framework net6.0 -o ./APP_Deployment_ENV/linux_x64'
                         sh 'dotnet clean'
-                        sh 'dotnet publish -c Release -r win-x64 --self-contained -p:PublishReadyToRun=true --framework net6.0 -o ./APP_Deployment_ENV/windows_x64'
+                        sh 'dotnet publish -c Release -r win-x64 --self-contained -p:PublishReadyToRun=true --framework net6.0 -o ./APP_Deployment_ENV/win_x64'
                     }
                 }
             }
@@ -93,7 +93,7 @@ pipeline {
             steps {
                 sshagent(credentials: ['jenkins-ssh-key']) {
                     sh """
-                    # Secure copy the published files to the Nginx container
+                    # Copy the published files to the Nginx container
                     scp -o StrictHostKeyChecking=no -r ./APP_Development_ENV/SimpleNetApp/APP_Deployment_ENV/linux_x64/* root@172.20.0.4:/usr/share/nginx/html/
     
                     ssh -o StrictHostKeyChecking=no root@172.20.0.4 bash << 'EOF'
@@ -106,11 +106,31 @@ pipeline {
                             kill -9 \$PID
                         fi
     
+                        # Start the application in the background
                         nohup dotnet SimpleNetApp.dll > /dev/null 2>&1 &
                         echo "Application restarted successfully"
                 """
                 }
             }
+        }
+        stage('Deploy to Window') {
+            steps {
+                // sshagent(credentials: ['windows_ssh_key']) {
+                // scp -o StrictHostKeyChecking=no -r /app_deployment/windows_x64/* Administrator@windows-server-ip:/path/to/deploy/
+                // ssh -o StrictHostKeyChecking=no Administrator@windows-server-ip powershell -Command "& {
+                //     cd /path/to/deploy
+                //     Stop-Process -Name SimpleNetApp -ErrorAction SilentlyContinue
+                //     Start-Process -FilePath .\\SimpleNetApp.exe
+                echo 'Deployment to Windows Manually, Successful! (Ran out of resource)'
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Deployment successful!'
+        }
+        failure {
+            echo 'Deployment failed!'
         }
     }
 }

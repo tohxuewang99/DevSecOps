@@ -202,5 +202,8 @@ chmod 600 ./nginx/root_ssh/authorized_keys
 # install ssh agent plugin to allow SCP and SSH from pipeline
 ![ssh agent plugins](Images/image-20.png)
 
-
+# Step 9: Deployment to Windows environment / local
+# updated jenkins to point back to local folder for persistence in deployment files as a shared/reflected both ways
+# ran out of resource for another windows image creation
+# run the deployment file in DevSecOps\APP_Deployment_ENV\win_x64\SimpleNetApp.exe --urls=http://localhost:1234
 

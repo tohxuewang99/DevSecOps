@@ -8,7 +8,8 @@ services:
       - "8899:8899"
     volumes:
       - ./jenkins_home:/var/jenkins_home # Mount the Jenkins file onto ./jenkins_home folder
-      - /var/run/docker.sock:/var/run/docker.sock  # Mount Docker socket for Docker in Docker
+      - ./var/run/docker.sock:/var/run/docker.sock  # Mount Docker socket for Docker in Docker
+      - ./APP_Deployment_ENV:/var/jenkins_home/workspace/DevSecOps/APP_Development_ENV/SimpleNetApp/APP_Deployment_ENV
     networks:
       MyCustomNetwork:
         ipv4_address: 172.20.0.2
