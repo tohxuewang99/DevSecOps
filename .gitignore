@@ -17,6 +17,7 @@ sonarqube_old/
 nginx/html/
 nginx/root_ssh/
 nginx/ssh_keys/
+nginx/admin_user_ssh/
 
 # General
 .vscode/ # Ignore VS Code settings

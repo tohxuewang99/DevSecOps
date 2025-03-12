@@ -11,6 +11,8 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install -y dotnet-sdk-6.0 libicu-dev && \
     apt-get install -y jq && \
+    wget https://github.com/aquasecurity/trivy/releases/download/v0.45.0/trivy_0.45.0_Linux-64bit.deb && \
+    dpkg -i trivy_0.45.0_Linux-64bit.deb && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

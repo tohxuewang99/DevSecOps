@@ -199,11 +199,15 @@ chmod 600 ./nginx/root_ssh/authorized_keys
 # Step 8: Deploy to Linux environment
 # nginx.dockerfile to install .Net 6.0 sdk as the publish is not self-contained
 # updated jenkinsfile to use nohup to run the application and nginx.conf to do a reverse proxy to port 8080
-# install ssh agent plugin to allow SCP and SSH from pipeline
+# install ssh agent plugin to allow SCP and SSH from pipeline and update credentials wth the private key and password
 ![ssh agent plugins](Images/image-20.png)
+![ssh credentials](Images/image-21.png)
 
 # Step 9: Deployment to Windows environment / local
 # updated jenkins to point back to local folder for persistence in deployment files as a shared/reflected both ways
 # ran out of resource for another windows image creation
 # run the deployment file in DevSecOps\APP_Deployment_ENV\win_x64\SimpleNetApp.exe --urls=http://localhost:1234
+
+# updated files based on OWASP guideline for docker deployment and security
+# removed root user as ssh user for nginx:alpine app reverse proxy deployment
 
