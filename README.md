@@ -208,6 +208,8 @@ chmod 600 ./nginx/root_ssh/authorized_keys
 # ran out of resource for another windows image creation
 # run the deployment file in DevSecOps\APP_Deployment_ENV\win_x64\SimpleNetApp.exe --urls=http://localhost:1234
 
+# Step 10: OWASP guidelines
 # updated files based on OWASP guideline for docker deployment and security
 # removed root user as ssh user for nginx:alpine app reverse proxy deployment
+# trivy docker image scan for vulnerabilities using jenkins pipeline
 

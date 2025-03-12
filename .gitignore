@@ -1,5 +1,5 @@
 # Secrets and tokens
-secrets.yml
+secrets
 
 # Jenkins
 jenkins_home/ # Ignore the entire Jenkins home directory (contains sensitive data and logs)

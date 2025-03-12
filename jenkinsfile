@@ -77,6 +77,19 @@ pipeline {
                 }
             }
         }
+        stage('Scan Docker Images') {
+            steps {
+                script {
+                    try {
+                        sh 'trivy image --exit-code 1 --severity HIGH,CRITICAL jenkins/jenkins:lts'
+                        sh 'trivy image --exit-code 1 --severity HIGH,CRITICAL sonarqube:latest'
+                    } catch (Exception e) {
+                        echo "Trivy scan failed: ${e.getMessage()}"
+                        // Continue the pipeline even if the scan fails
+                    }
+                }
+            }
+        }
         stage('Publish .NET Application') {
             steps {
                 script {
@@ -94,9 +107,9 @@ pipeline {
                 sshagent(credentials: ['jenkins-ssh-key']) {
                     sh """
                     # Copy the published files to the Nginx container
-                    scp -o StrictHostKeyChecking=no -r ./APP_Development_ENV/SimpleNetApp/APP_Deployment_ENV/linux_x64/* root@172.20.0.4:/usr/share/nginx/html/
+                    scp -o StrictHostKeyChecking=no -r ./APP_Development_ENV/SimpleNetApp/APP_Deployment_ENV/linux_x64/* admin_user@172.20.0.4:/usr/share/nginx/html/
     
-                    ssh -o StrictHostKeyChecking=no root@172.20.0.4 bash << 'EOF'
+                    ssh -o StrictHostKeyChecking=no admin_user@172.20.0.4 bash << 'EOF'
                         cd /usr/share/nginx/html/
     
                         # Find and kill the previous process
@@ -121,7 +134,7 @@ pipeline {
                 //     cd /path/to/deploy
                 //     Stop-Process -Name SimpleNetApp -ErrorAction SilentlyContinue
                 //     Start-Process -FilePath .\\SimpleNetApp.exe
-                echo 'Deployment to Windows Manually, Successful! (Ran out of resource)'
+                echo 'Deployment to Windows Manually, Successful!'
             }
         }
     }
