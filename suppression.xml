@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
     <suppress>
-        <packageUrl regex="true">pkg:javascript/jquery-validation@1\.19\.5</packageUrl>
-        <vulnerabilityName>Potential XSS via showLabel</vulnerabilityName>
-        <md5>7c842b9debce62b8458428a0a7254105</md5>
+        <notes><![CDATA[
+        file name: additional-methods.js
+        ]]></notes>
         <sha1>38522100c0a08864299e41525338ff71c29d6236</sha1>
-        <sha256>d0778c5b24146d36deed21a74986e38fdf87540d2128398452d6d8a1329ef819</sha256>
-        <notes>
-            This is a false positive. The version of jquery-validation used is not vulnerable to this issue.
-            The vulnerability is specific to newer versions, and the issue has been mitigated in our usage.
-        </notes>
+        <vulnerabilityName>Potential XSS via showLabel</vulnerabilityName>
+    </suppress>
+    <suppress>
+        <notes><![CDATA[
+        file name: additional-methods.min.js
+        ]]></notes>
+        <sha1>11a7b50784a0dca7b1488ec5f9affd9a0354612f</sha1>
+        <vulnerabilityName>Potential XSS via showLabel</vulnerabilityName>
+    </suppress>
+    <suppress>
+        <notes><![CDATA[
+        file name: jquery.validate.js
+        ]]></notes>
+        <sha1>05b36e84d98cc0fe2970c3009b3c5c5ef7fc434e</sha1>
+        <vulnerabilityName>Potential XSS via showLabel</vulnerabilityName>
+    </suppress>
+    <suppress>
+        <notes><![CDATA[
+        file name: jquery.validate.min.js
+        ]]></notes>
+        <sha1>514dc9a21607634859963c49bbc773fb57a356db</sha1>
+        <vulnerabilityName>Potential XSS via showLabel</vulnerabilityName>
     </suppress>
 </suppressions>

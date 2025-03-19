@@ -43,7 +43,7 @@ services:
       MyCustomNetwork:
         ipv4_address: 172.20.0.3
     environment:
-      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true  # Running sonarqube server using docker does not require Elasticsearch bootstrap checks or environment scan in short
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=false  # Running sonarqube server using docker does not require Elasticsearch bootstrap checks or environment scan in short
     volumes:
       # default username:admin & password:admin
       - ./sonarqube/sonarqube_data:/opt/sonarqube/data

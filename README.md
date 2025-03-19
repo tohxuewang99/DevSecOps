@@ -25,7 +25,7 @@ dotnet new xunit -n SimpleNetApp.Tests
 
 # Add the reference into the testing project
 cd SimpleNetApp.Tests
-dotnet add reference ../SimpleMvcApp/SimpleMvcApp.csproj
+dotnet add reference ../SimpleMvcApp/SimpleNetApp.csproj
 
 # Add a Controller for a simple Unit Testing class ControllerTests.cs
 
@@ -213,3 +213,14 @@ chmod 600 ./nginx/root_ssh/authorized_keys
 # removed root user as ssh user for nginx:alpine app reverse proxy deployment
 # trivy docker image scan for vulnerabilities using jenkins pipeline
 
+# Step 11: Webhook from Azure DevOps to jenkins
+# generate a jenkins API token for Azure DevOps Service hook
+![Azure token for servicehook](Images/image-22.png)
+# Go to Azure DevOps and create a new service hook
+![Azure service hook creation 1](Images/image-23.png)
+![Azure service hook creation 2](Images/image-24.png)
+![Azure service hook creation 3](Images/image-25.png)
+![Azure service hook creation 4](Images/image-26.png)
+![Azure service hook creation 5](Images/image-27.png)
+# Check if jenkins pipeline auto builds when code is pushed to repository
+![Auto build from servicehook](Images/image-28.png)

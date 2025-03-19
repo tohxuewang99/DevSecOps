@@ -19,6 +19,9 @@ RUN apt-get update && \
 # Set the Jenkins environment variables
 ENV JENKINS_OPTS="--httpPort=8899"
 
+# Enable Jenkins self-updating by installing the Jenkins plugin manager CLI
+RUN jenkins-plugin-cli --latest
+
 # Set Jenkins user back for security
 USER jenkins
 

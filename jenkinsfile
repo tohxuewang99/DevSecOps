@@ -21,6 +21,12 @@ pipeline {
                 }
             }
         }
+        stage('OWASP Dependency check') {
+            steps {
+                dependencyCheck additionalArguments: ''' -o './' -s './' --format "XML" --format "HTML" --prettyPrint --suppression "suppression.xml" ''', odcInstallation: 'OWASP'
+                dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+            }
+        }
         stage('Unit Testing') {
             steps {
                 script {
@@ -28,12 +34,6 @@ pipeline {
                         sh 'dotnet test'
                     }
                 }
-            }
-        }
-        stage('OWASP Dependency check') {
-            steps {
-                dependencyCheck additionalArguments: ''' -o './' -s './' --format "XML" --format "HTML" --prettyPrint --suppression "suppression.xml" ''', odcInstallation: 'OWASP'
-                dependencyCheckPublisher pattern: 'dependency-check-report.xml'
             }
         }
         stage('SonarQube Analysis') {
@@ -85,7 +85,6 @@ pipeline {
                         sh 'trivy image --exit-code 1 --severity HIGH,CRITICAL sonarqube:latest'
                     } catch (Exception e) {
                         echo "Trivy scan failed: ${e.getMessage()}"
-                        // Continue the pipeline even if the scan fails
                     }
                 }
             }
